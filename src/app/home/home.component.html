@@ -1,0 +1,151 @@
+<div class="container">
+    <div class="item-a">
+        <mat-card class="card-search">
+          <mat-card-content class="searchs-content">
+            <mat-list role="list">
+              <mat-list-item role="listitem" *ngFor="let message of cardMessages">
+                <mat-card class="{{message.style}}-card">
+                  <span>{{message.text}}</span>
+                </mat-card>
+              </mat-list-item>
+            </mat-list>
+          </mat-card-content>
+          <mat-card-actions>
+              <button mat-raised-button ([searchActivated])="searchActivated" (click)="searchActivated = 'user'">Users</button>
+              <button mat-raised-button ([searchActivated])="searchActivated" (click)="searchActivated = 'hashtag'">Hashtag</button>
+              <button mat-raised-button ([searchActivated])="searchActivated" (click)="searchActivated = 'location'">Location</button>
+            <div>
+              <mat-form-field class="search-form">
+                  <input class="input-full-width" matInput #message placeholder="Serch by {{searchActivated}}"  (keyup.enter)="search(txtSearch)" [(ngModel)]="txtSearch">
+              </mat-form-field>
+            </div>
+          </mat-card-actions>
+        </mat-card>
+    </div>
+    <div class="item-b">
+      <p>item B</p>
+    </div>
+    <div class="item-c">
+      <p>item C</p>
+    </div>
+    <div class="item-d">
+      <mat-card class="example-card" class="card-photo" *ngFor="let image of [1,2,3,4,5,6,7,8,9]">
+          <mat-card-content>
+          </mat-card-content>
+        </mat-card>
+    </div>
+  </div>
+
+
+<!-- <main>
+	<div class="bigcolumn">
+    <mat-card  class="search-card no-padding">
+      <div>
+
+      </div>
+      <div>
+
+      </div>
+    </mat-card>
+  </div>
+	<div class="largecolumn"></div>
+	<div *ngFor="let image of [1,2,3,4,5,6,7,8,9,10,11,12]" class="cards">{{image}}</div>
+</main> -->
+
+
+
+
+<!-- <mat-grid-list cols="6" rowHeight="180px">
+    <mat-grid-tile
+        [colspan]="2"
+        [rowspan]="3"
+        [style.background]="'lightblue'">
+      <mat-card class="search-card">
+        <mat-grid-list cols="1" rowHeight="150px">
+            <mat-grid-tile [rowspan]="2" class="grid-overflow" id="style-1">
+                <mat-list class="full-width" role="list">
+                  <mat-list-item role="listitem" *ngFor="let message of cardMessages">
+                      <mat-card class="{{message.style}}-card">
+                          <span>{{message.text}}</span>
+                      </mat-card>
+                  </mat-list-item>
+                </mat-list>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <mat-list class="full-width">
+                  <mat-list-item>
+                      <div class="button-row">
+                              <button mat-raised-button ([searchActivated])="searchActivated" (click)="searchActivated = 'user'">Users</button>
+                              <button mat-raised-button ([searchActivated])="searchActivated" (click)="searchActivated = 'hashtag'">Hashtag</button>
+                              <button mat-raised-button ([searchActivated])="searchActivated" (click)="searchActivated = 'location'">Location</button>
+                      </div>
+                  </mat-list-item>
+                  <mat-list-item>
+                      <div class="full-width">
+                          <mat-form-field class="full-width">
+                              <input matInput #message placeholder="Serch by {{searchActivated}}"  (keyup.enter)="search(txtSearch)" [(ngModel)]="txtSearch">
+                          </mat-form-field>
+                      </div>
+                  </mat-list-item>
+              </mat-list>
+          </mat-grid-tile>
+      </mat-grid-list>
+    </mat-card>
+  </mat-grid-tile>
+  <mat-grid-tile
+      [colspan]="4"
+      [rowspan]="2"
+      [style.background]="'lightgreen'">
+      two
+  </mat-grid-tile>
+  <mat-grid-tile
+      [colspan]="4"
+      [rowspan]="3"
+      [style.background]="'lightgreen'">
+      <div class="flex-container wrap">
+          <mat-card class="flex-item" *ngFor="let card of [1,2,3,4,5,6,7]">
+            <mat-card-header>
+                <div mat-card-avatar class="avatar-image"></div>
+                <mat-card-title>Erivan Franklin</mat-card-title>
+                <mat-card-subtitle>Web developer</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                    <p>
+                        The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                        A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                        bred for hunting.
+                    </p>
+            </mat-card-content>
+            <mat-card-actions>
+                    <button mat-button>LIKE</button>
+                    <button mat-button>SHARE</button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+    </mat-grid-tile>
+  </mat-grid-list> -->
+  <!-- <ul class="flex-container wrap">
+      <li class="flex-item">1</li>
+      <li class="flex-item">2</li>
+      <li class="flex-item">3</li>
+      <li class="flex-item">4</li>
+      <li class="flex-item">5</li>
+      <li class="flex-item">6</li>
+      <li class="flex-item">7</li>
+      <li class="flex-item">8</li>
+      <li class="flex-item">6</li>
+      <li class="flex-item">7</li>
+      <li class="flex-item">5</li>
+      <li class="flex-item">6</li>
+      <li class="flex-item">7</li>
+      <li class="flex-item">8</li>
+      <li class="flex-item">6</li>
+      <li class="flex-item">7</li>
+      <li class="flex-item">8</li>
+      <li class="flex-item">8</li>
+      <li class="flex-item">8</li>
+      <li class="flex-item">6</li>
+      <li class="flex-item">7</li>
+      <li class="flex-item">8</li>
+      <li class="flex-item">8</li>
+  </ul> -->
