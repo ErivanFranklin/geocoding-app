@@ -1,6 +1,6 @@
 .container{
   display: grid;
-  border: 1px solid black;
+  // border: 1px solid black;
   grid-template-columns: 30% 70%;
   grid-template-rows: auto 450px auto;
   div{
@@ -9,20 +9,25 @@
 }
 
 .item-a {
-  background: red;
+  // background: red;
   grid-column-start: 1;
-  grid-column-end: 1;
+  grid-column-end: span 1;
   grid-row-start: row1-start;
   grid-row-end: 1;
+  position: sticky;
+  top: 0px;
 }
 
 .item-b {
-  background: green;
+  // background: green;
   grid-column-start: 2;
+  position: sticky;
+  top: 0px;
+  z-index: 200;
 }
 
 .item-c {
-  background: pink;
+  // background: pink;
   grid-column-start: 1;
   grid-row-start: 3;
   grid-row-end: span 4;
@@ -30,10 +35,13 @@
 
 
 .item-d {
-  background: purple;
+  // background: purple;
   grid-column-start: 2;
   grid-row-start: 2;
-  grid-row-end: 4;
+  grid-row-end: span 4;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 }
 
 
@@ -54,6 +62,8 @@
 
 .searchs-content{
   min-height: 300px;
+  max-height: 300px;
+  overflow: auto;
 }
 
 .card-search{
@@ -69,8 +79,36 @@
   width: 100%;
 }
 
-.card-photo{
+.flex-item {
+  padding: 5px;
+  width: 200px;
   height: 250px;
-  width: 180px;
-  display: flex;
+  margin-top: 10px;
+  line-height: 150px;
+}
+
+/** style of scrool **/
+#grid-overflow::-webkit-scrollbar
+{
+  width: 12px;
+}
+
+#grid-overflow::-webkit-scrollbar-track {
+  border-radius: 10px;
+  background: rgba(0,0,0,0.1);
+  border: 1px solid #ccc;
+}
+
+#grid-overflow::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: linear-gradient(left, #fff, #e4e4e4);
+  border: 1px solid #aaa;
+}
+
+#grid-overflow::-webkit-scrollbar-thumb:hover {
+  background: #fff;
+}
+
+#grid-overflow::-webkit-scrollbar-thumb:active {
+  background: linear-gradient(left, #22ADD4, #1E98BA);
 }

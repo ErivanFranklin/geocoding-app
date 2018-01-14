@@ -35,7 +35,6 @@ export class HomeComponent implements OnInit {
 
     this.cardMessages.push(tag);
     this.cardMessages.push(message);
-    console.log(this.cardMessages);
     this.txtSearch = '';
 
     if (this.searchActivated === 'user') {
