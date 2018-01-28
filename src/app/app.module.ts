@@ -1,28 +1,43 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from './material.module';
-import { InstagramService } from './instagram.service';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { AgmCoreModule } from '@agm/core';
+import {
+  MatAutocompleteModule,
+} from '@angular/material';
+import { GoogleAutocompleteComponent } from './google.autocomplete/google.autocomplete.component';
+import { GoogleService } from './services/google.service';
+import { InstagramService } from './instagram.service';
+import { WeatherService } from './services/weather.service';
+import { environment } from '../environments/environment';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    GoogleAutocompleteComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    MatAutocompleteModule,
     MaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AgmCoreModule.forRoot({
+      apiKey: environment.GOOGLE_MAPS_API_KEY,
+      libraries: ['places']
+    }),
+    ReactiveFormsModule
   ],
-  providers: [InstagramService],
+  providers: [InstagramService, GoogleService, WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -5,6 +5,7 @@
 
 export const environment = {
   production: false,
-  googleMapsKey: 'AIzaSyCVxd1i5NFvapOVDtBh7VSst4EyMFo3zZ0',
-  instagtam_access_token : '488674994.0a0ef45.197bf30b8c704a82b36b391efe6895ac'
+  GOOGLE_MAPS_API_KEY: 'AIzaSyD_HpKwSsraEc476wPbSa_bJEbe2wN5b2M',
+  instagtam_access_token : '488674994.0a0ef45.197bf30b8c704a82b36b391efe6895ac',
+  weather_appid : 'd4faaf41e91537ffb620203034736d53'
 };

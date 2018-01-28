@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { InstagramService } from '../instagram.service';
 import { error } from 'selenium-webdriver';
+import { GoogleAutocompleteComponent } from '../google.autocomplete/google.autocomplete.component';
+import { GoogleService } from '../services/google.service';
 
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   cardMessages = [];
@@ -18,7 +20,7 @@ export class HomeComponent implements OnInit {
     {text: 'Three', cols: 2, rows: 2, color: 'lightpink'}
   ];
 
-  constructor(private instaService: InstagramService) { }
+  constructor(private instaService: InstagramService, private googleService: GoogleService ) { }
 
   ngOnInit() {
     this.cardMessages = [
@@ -27,6 +29,7 @@ export class HomeComponent implements OnInit {
         'style': 'message'
       }
     ];
+
   }
 
   search(txtSearch) {
@@ -54,5 +57,13 @@ export class HomeComponent implements OnInit {
       err => console.log(err.message)
     );
   }
+
+  // searchAdress() {
+  //   this.googleService.searchAdress('jksd')
+  //   .subscribe(
+  //     res => console.log(res),
+  //     err => console.log(err.message)
+  //   );
+  // }
 
 }
